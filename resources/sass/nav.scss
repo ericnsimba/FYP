@@ -1,0 +1,39 @@
+/* The sidebar menu */
+#mySidenav {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    background-color: #031D44;;
+    height: 100%;
+    overflow: auto;
+  }
+
+  /* The navigation menu links */
+  #mySidenav a {
+        display: block;
+        color: whitesmoke;
+        padding: 10px;
+        text-decoration:none;
+
+  }
+  /* Active/current link */
+
+
+  /* When you mouse over the navigation links, change their color */
+  #mySidenav a:hover {
+    border-top:1px solid whitesmoke;
+    border-bottom:1px solid whitesmoke;
+
+    font-size: 20px;
+  }
+
+  #navbar{
+      color: whitesmoke;
+      text-decoration: none;
+  }
+
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    #sidenav {padding-top: 15px;}
+    #sidenav a {font-size: 18px;}
+  }
