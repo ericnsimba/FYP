@@ -12,10 +12,17 @@
 
         </ul>
     </div>
-    <div class="card-footer">
+    <div class="card-footer tab-content">
+    <div class="tab-pane fade" id="imprestComment">
+             <textarea name="comment" cols="78" rows="5" placeholder="Comments"></textarea>
+             <a href="{{url("/decline/$staff->id",[$imprest->icode])}}" class="btn btn-primary">SEND</a>
+    </div>
+    <div class=" tab-pane active">
         <button-group style="float:right">
+            <a href="#imprestComment" data-toggle="pill" class="btn btn-danger">DECLINE</a>
             <a href="{{url("/accept/$staff->id",[$imprest->icode])}}" class="btn btn-primary">ACCEPT</a>
-            <a href="{{url("/decline/$staff->id",[$imprest->icode])}}" class="btn btn-danger">DECLINE</a>
+
         </button-group>
     </div>
+</div>
 </div>

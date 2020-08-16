@@ -12,11 +12,11 @@
         <div class="col-md-10">
 
              <main id="dn" class="row" >
-                 <div id="dashboard"  class="col-md-7">
+                 <div id="dashboard"  class="col-md-8">
                         @yield('dashboard')
                         @includeWhen($boolean ?? '' , 'imprest')
                     </div>
-                 <div id="userNotifications" class="col-md-3">
+                 <div id="userNotifications" class="col-md-4">
                     @include('user-notifications')
                  </div>
              </main>

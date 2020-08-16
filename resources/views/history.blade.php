@@ -33,12 +33,10 @@
 
                 @if ($status[$key])
                 <td class="table-success" >Cleared</td>
+                @elseif(empty($accepted_at[$key]))
+                 <td class="table-warning">Pending </td>
                 @else
-                
-                @empty($accepted_at[$key])
-                 <td class="table-danger">Pending </td>
-                @endempty
-                <td class="table-danger"> <a href="{{ action('RetirementController@create', ['icode' => $imprest->icode])}}" >  Not Cleared </a> </td>
+                <td class="table-danger"> <a href="{{ action('RetirementController@create', ['icode' => $imprest->icode])}}" >  Not Cleared</a> </td>
                 @endif
                  </tr>
                  @empty
@@ -63,7 +61,7 @@
             <tr>
                 <td>{{$retirement->rcode}}</td>
                 <td>{{$retirement->totalAmount}}</td>
-                <td>{{$retirement->created_at}}</td>
+                <td>{{$retirement->created_at->format('Y-m-d')}}</td>
                 <td>{{$retirement->accepted_at}}</td>
 
             </tr>

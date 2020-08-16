@@ -4,6 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 use App\Attachments;
+use Illuminate\Support\Facades\Storage;
 
 class Rmodal extends Component
 {
@@ -31,6 +32,7 @@ class Rmodal extends Component
      */
     public function render()
     {
+        $contents = Storage::get('file.jpg');
         return view('components.rmodal');
     }
     public function attachments()

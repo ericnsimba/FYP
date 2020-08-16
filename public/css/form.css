@@ -24,12 +24,6 @@ div.card div.card-header {
   border-right: 1px solid lightgray;
 }
 
-#dn #userNotifications {
-  border-left: 1px solid lightgray;
-  border-right: 1px solid lightgray;
-  width: 100%;
-}
-
 #content {
   padding-top: 1px !important;
   position: absolute;

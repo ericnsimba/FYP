@@ -22,16 +22,24 @@
                     <div class="modal-body">
                         <x-rmodal rcode="{{$notification->data['rcode']}}"></x-rmodal>
                     </div>
-                    <div class="modal-footer">
-                        <a href="{{url("/acceptretirement",[$notification->data['rcode']])}}" class="btn btn-primary">ACCEPT</a>
-                        <a href="{{url("/declineretirement",[$notification->data['rcode']])}}" class="btn btn-danger">DECLINE</a>
+                    <div class="modal-footer tab-content">
+                        <div class="tab-pane fade" id="retirementComment">
+                            <textarea name="comment" cols="55" rows="5" placeholder="Comments"></textarea>
+                            <a href="{{url("/declineretirement",[$notification->data['rcode']])}}"
+                                class="btn btn-primary">SEND</a>
+                        </div>
+                        <div class="tab-pane active">
+                            <a href="{{url("/acceptretirement",[$notification->data['rcode']])}}"
+                                class="btn btn-primary">ACCEPT</a>
+                            <a href="#retirementComment" data-toggle="pill" class="btn btn-danger">DECLINE</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-            @endif
-            @empty
-            <li class="list-group-item">No new Imprest/Retirement</li>
-            @endforelse
+        @endif
+        @empty
+        <li class="list-group-item">No new Imprest/Retirement</li>
+        @endforelse
     </ul>
 </div>

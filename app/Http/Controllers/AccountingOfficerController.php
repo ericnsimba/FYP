@@ -20,7 +20,7 @@ class AccountingOfficerController extends Controller
     {
         $status = 'accepted';
         DB::table('imprestStaff')->where('icode', '=', $icode)->update([
-            'accepted_at' => Carbon::now()->toDateTimeString()
+            'accepted_at' => Carbon::now()->format('Y-m-d')
         ]);
 
         Auth::user()->unreadNotifications->where('type', 'App\Notifications\NewImprestNotify')->first()->markAsRead();
@@ -42,7 +42,7 @@ class AccountingOfficerController extends Controller
     public function retirementAccept($rcode)
     {
         Retirement::find($rcode)->update([
-            'accepted_at' => Carbon::now()->toDateTimeString(),
+            'accepted_at' => Carbon::now()->format('Y-m-d'),
             'status' => true
         ]);
         Auth::user()->unreadNotifications->where('type', 'App\Notifications\NewRetirementNotify')->first()->markAsRead();
@@ -53,7 +53,7 @@ class AccountingOfficerController extends Controller
     public function retirementDecline($rcode)
     {
         Retirement::find($rcode)->update([
-            'accepted_at' => Carbon::now()->toDateTimeString(),
+            'accepted_at' => Carbon::now()->format('Y-m-d'),
             'status' => false
         ]);
         Auth::user()->unreadNotifications->where('type', 'App\Notifications\NewRetirementNotify')->first()->markAsRead();
