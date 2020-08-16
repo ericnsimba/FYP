@@ -20,11 +20,12 @@ class AccountingOfficerController extends Controller
     {
         $status = 'accepted';
         DB::table('imprestStaff')->where('icode', '=', $icode)->update([
-            'accepted_at' => Carbon::now()->format('Y-m-d')
+            'accepted_at' => Carbon::now()->format('Y-m-d'),
+            'accountingOfficerStatus'=>true
         ]);
-
         Auth::user()->unreadNotifications->where('type', 'App\Notifications\NewImprestNotify')->first()->markAsRead();
 
+        $user = User::role('bursar')->get();
         // Notification::send( User::find($userid),new ProgressStatus($icode,$status));
         return redirect('home')->with('message', 'Imprest successful accepted');
     }
@@ -32,7 +33,8 @@ class AccountingOfficerController extends Controller
     {
         $status = 'declined';
         DB::table('imprestStaff')->where('icode', '=', $icode)->update([
-            'accepted_at' => Carbon::now()->toDateTimeString()
+            'accepted_at' => Carbon::now()->toDateTimeString(),
+            'accountingOfficerStatus'=>false
         ]);
         Auth::user()->unreadNotifications->where('type', 'App\Notifications\NewImprestNotify')->first()->markAsRead();
 

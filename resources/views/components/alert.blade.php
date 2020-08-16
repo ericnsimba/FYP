@@ -1,4 +1,4 @@
-<div>
+
     <ul class="list-group list-group-flush">
         @forelse ($notifications as $notification)
         @if ( $notification->type == "App\Notifications\NewImprestNotify")
@@ -14,7 +14,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">RETIREMENT</h4>
+                        <h5 class="modal-title" id="myModalLabel">RETIREMENT</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -38,8 +38,24 @@
             </div>
         </div>
         @endif
+
         @empty
-        <li class="list-group-item">No new Imprest/Retirement</li>
+
         @endforelse
     </ul>
-</div>
+
+    @role('bursar')
+
+   @forelse ($imprests as $imprest)
+   <ul class="list-group list-group-flush">
+    <h5>From Accounting Officer</h5>
+<li class="list-group-item"> <a href="{{action('ImprestController@show',[$imprest->icode])}}"> ICODE:{{$imprest->icode}}, NAME:{{$imprest->id}}</a> </li>
+</ul>
+   @empty
+   
+   @endforelse
+
+
+
+
+    @endrole

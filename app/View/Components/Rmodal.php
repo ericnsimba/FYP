@@ -32,7 +32,7 @@ class Rmodal extends Component
      */
     public function render()
     {
-        $contents = Storage::get('file.jpg');
+        // $contents = Storage::get('file.jpg');
         return view('components.rmodal');
     }
     public function attachments()

@@ -27,7 +27,7 @@ class ImprestController extends Controller
      */
     public function index()
     {
-        return Attachments::all();
+       
     }
 
     /**

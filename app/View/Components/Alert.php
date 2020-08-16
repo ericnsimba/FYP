@@ -5,6 +5,7 @@ namespace App\View\Components;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\Component;
 use App\Attachments;
+use App\ImprestStaffs;
 
 class Alert extends Component
 {
@@ -37,9 +38,9 @@ class Alert extends Component
     {
         return Auth::user()->unReadNotifications;
     }
-    public function attachment()
+    public function imprests()
     {
-       return  Attachments::all();
+       return  ImprestStaffs::whereNotNull('accountingOfficerStatus')->where('bursarStatus',null)->get();
     }
 
 }

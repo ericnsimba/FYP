@@ -46,6 +46,8 @@ Route::post('salary', 'adminController@newsalaryGrade');
 Route::group(['middleware' => ['role:accountingOfficer|bursar']], function () {
 
 Route::get('/accept/{id}/{icode}','AccountingOfficerController@accept');
+Route::get('/accept/{icode}','BursarController@accept');
+Route::get('/decline/{icode}','BursarController@decline');
 Route::get('/decline/{id}/{icode}','AccountingOfficerController@decline');
 Route::get('/acceptretirement/{rcode}','AccountingOfficerController@retirementAccept');
 Route::get('/declineretirement/{rcode}','AccountingOfficerController@retirementDecline');

@@ -14,6 +14,7 @@
              <main id="dn" class="row" >
                  <div id="dashboard"  class="col-md-8">
                         @yield('dashboard')
+                        
                         @includeWhen($boolean ?? '' , 'imprest')
                     </div>
                  <div id="userNotifications" class="col-md-4">
