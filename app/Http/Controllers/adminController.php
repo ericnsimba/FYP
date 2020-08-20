@@ -8,10 +8,30 @@ use App\SalaryGrade;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-
+use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
 class adminController extends Controller
+
+
 {
+   public function graphs()
+   {
+     //$chart = new LaravelChart($options);
+     $chart_options = [
+        'chart_title' => 'Users by months',
+        'report_type' => 'group_by_date',
+        'model' => 'App\User',
+        'group_by_field' => 'created_at',
+        'group_by_period' => 'month',
+        'chart_type' => 'bar',
+    ];
+    $chart1 = new LaravelChart($chart_options);
+
+    return view('home', compact('chart1'));
+
+   }
+
+
     public function createDesignation(Request $request){
         $request->validate(
             [

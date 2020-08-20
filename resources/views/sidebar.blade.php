@@ -28,6 +28,13 @@
                 My History
             </a>
         </li>
+    </li>
+    <li class="nav-item" >
+        <a class="nav-link" href="{{url('/imprest')}}">
+            <i class="fa fa-history" aria-hidden="true"></i>
+            Progress Tracker
+        </a>
+    </li>
 
         <li class="nav-item">
             <a class="nav-link" href="#">

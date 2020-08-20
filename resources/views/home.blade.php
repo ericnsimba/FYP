@@ -13,8 +13,24 @@
 
              <main id="dn" class="row" >
                  <div id="dashboard"  class="col-md-8">
+                      <!-- Chart's container -->
+    {{--<div id="chart" style="height: 300px;"></div>
+    <!-- Charting library -->
+    <script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>
+    <!-- Chartisan -->
+    <script src="https://unpkg.com/@chartisan/echarts/dist/chartisan_echarts.js">
+    </script>
+    <!-- Your application script -->
+   <script>
+      const chart = new Chartisan({
+        el: '#chart',
+        url: "@charts('sample_chart')",
+
+      });
+    </script> --}}
+                       @yield('progress')
                         @yield('dashboard')
-                        
+
                         @includeWhen($boolean ?? '' , 'imprest')
                     </div>
                  <div id="userNotifications" class="col-md-4">

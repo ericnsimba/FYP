@@ -27,7 +27,17 @@ class ImprestController extends Controller
      */
     public function index()
     {
-       
+
+       $imprestStaff = ImprestStaffs::where('id',Auth::user()->id)->get();
+       $values = array(
+       'submitted' => 10,
+       'pending' => 15,
+       'acountant' => 25,
+     '  bursar' => 25,
+      ' issued '=> 15,
+       'retired' => 10
+       );
+       return view('progress',(compact('imprestStaff','values')) );
     }
 
     /**

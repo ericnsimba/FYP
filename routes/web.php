@@ -31,7 +31,7 @@ Route::get('home', function () {
     $boolean = false;
     return view('home',['boolean' => $boolean]);
 });
-
+Route::view('/progress', 'progress');
 Route::group(['middleware' => ['role:admin']], function () {
 Route::view('/designation', 'designation');
 Route::view('/department', 'department');
